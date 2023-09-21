@@ -58,14 +58,17 @@ app.get('/', (req, res) => {
 })
 
 app.post('/ussd', (req, res) => {
-  let args = {
-        phoneNumber: req.body.phoneNumber,
-        sessionId: req.body.sessionId,
-        serviceCode: req.body.serviceCode,
-        text: req.body.text
-  };
-  menu.run(args, resMsg => {
-    res.send(resMsg);
+  // let args = {
+  //       phoneNumber: req.body.phoneNumber,
+  //       sessionId: req.body.sessionId,
+  //       serviceCode: req.body.serviceCode,
+  //       text: req.body.text
+  // };
+  // menu.run(args, resMsg => {
+  //   res.send(resMsg);
+  // });
+  menu.run(req.body, ussdResult => {
+    res.send(ussdResult);
   });
 });
 
