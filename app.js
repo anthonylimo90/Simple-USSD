@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
   res.send('I am alive');
 })
 
-app.post('/ussd', (req, res) => {
+app.post('/ussd', async (req, res) => {
   let args = {
         phoneNumber: req.body.phoneNumber,
         sessionId: req.body.sessionId,
