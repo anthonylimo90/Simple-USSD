@@ -65,9 +65,8 @@ app.post('/ussd', (req, res) => {
         text: req.body.text
   };
   console.log(`${phoneNumber}, ${sessionId}, ${text}`);
-  menu.run(args, resMsg => {
-    res.send(resMsg);
-  });
+  let resMsg = await menu.run(args);
+  res.send(resMsg);
   // menu.run(req.body, ussdResult => {
   //   res.send(ussdResult);
   // });
