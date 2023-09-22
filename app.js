@@ -58,18 +58,19 @@ app.get('/', (req, res) => {
 })
 
 app.post('/ussd', (req, res) => {
-  // let args = {
-  //       phoneNumber: req.body.phoneNumber,
-  //       sessionId: req.body.sessionId,
-  //       serviceCode: req.body.serviceCode,
-  //       text: req.body.text
-  // };
-  // menu.run(args, resMsg => {
-  //   res.send(resMsg);
-  // });
-  menu.run(req.body, ussdResult => {
-    res.send(ussdResult);
+  let args = {
+        phoneNumber: req.body.phoneNumber,
+        sessionId: req.body.sessionId,
+        serviceCode: req.body.serviceCode,
+        text: req.body.text
+  };
+  console.log(`${phoneNumber}, ${sessionId}, ${text}`);
+  menu.run(args, resMsg => {
+    res.send(resMsg);
   });
+  // menu.run(req.body, ussdResult => {
+  //   res.send(ussdResult);
+  // });
 });
 
 app.listen(port, () => {
