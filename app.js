@@ -1,5 +1,5 @@
 const express = require('express');
-const UssdMenu = require('ussd-menu-builder');
+const UssdMenu = require('ussd-builder');
 const app = express();
 
 const port = process.env.PORT || 3000;
